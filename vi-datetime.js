@@ -27,7 +27,7 @@
 				fgdate += tgyears;
 			}
 				
-			$(final_format).hide();
+			//$(final_format).hide();
 			$(final_format).after(fgdate);
 				
 			populateYears(format);
@@ -142,11 +142,23 @@
 					$.each( arr, function( key1, value1 ) {
 						
 						if(value1 == value){
-							decis = arr2[key1];
+							
+							if(arr2[key1] == arr2[key1-1]){
+								
+								decis = "-" + arr2[key1-1];
+								cval = "-" + cval;
+								final_date = pval.replace(decis,cval);
+							}
+							else{
+								decis = arr2[key1];
+								final_date = pval.replace(decis,cval);
+							}
+							
 						}
+						
 					});
 
-					final_date = pval.replace(decis,cval);
+					
 				}
 				else{
 					final_date = final_date.replace(value,cval);
