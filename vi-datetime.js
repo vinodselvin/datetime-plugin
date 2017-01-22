@@ -99,6 +99,62 @@
 	 
 	function daysInMonth(month, year) {
 		return new Date(year, month, 0).getDate();
+	}	
+	
+	$(document).ready(function(){
+
+		$('.vi-date').nextAll('select').on('change', function (e) {
+			
+			var pval = $(this).prevAll('.vi-date').val();
+			var cval = $(this).val();
+			var dclass = $(this).attr('class');
+			var format = $(this).prevAll('.vi-date').data('vi-format');
+			var inp_tag = $(this).prevAll('.vi-date');
+			
+			var final_date = processDate(pval, cval, dclass, format);
+			
+			inp_tag.val(final_date);
+			
+		});
+	});
+	
+	/*
+	 * @Author: Vinod Selvin
+	 * @Description: Processing Date to require format
+	 * @Params: pval-> Previous Input in textbox, cval-> current value from select field, dclass-> Class of select field, format-> Date format.
+	 */
+	
+	function processDate(pval, cval, dclass, format){
+		
+		var final_date = format;
+		var map_date = {'vmonths': 'mm', 'vdays': 'dd', 'vyears': 'yyyy'};
+		
+		$.each( map_date, function( key, value ) {
+			
+			if(key == dclass){
+				
+				if(pval != ''){
+					
+					var arr = format.split('-');
+					var arr2 = pval.split('-');
+					var decis = value;
+					
+					$.each( arr, function( key1, value1 ) {
+						
+						if(value1 == value){
+							decis = arr2[key1];
+						}
+					});
+
+					final_date = pval.replace(decis,cval);
+				}
+				else{
+					final_date = final_date.replace(value,cval);
+				}
+			}
+		});
+		
+		return final_date;
 	}
 	
 /*
