@@ -27,7 +27,7 @@
 				fgdate += tgyears;
 			}
 				
-			//$(final_format).hide();
+			$(final_format).hide();
 			$(final_format).after(fgdate);
 				
 			populateYears(format);
