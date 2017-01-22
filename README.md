@@ -1,5 +1,5 @@
 # Datetime-plugin
-Current Build of this plugin supports only Dates not Datetime, This feature will be added on next build.
+Current Build of this plugin supports only Date Format not Datetime, This feature will be included on our next build.
 
 ## Getting started
 
@@ -17,8 +17,7 @@ Include files:
 ```
 
 ### Output
-```html
-![N|Solid](https://raw.githubusercontent.com/vinodselvin/datetime-plugin/master/demo.png)
-```
+![Alt text](https://raw.githubusercontent.com/vinodselvin/datetime-plugin/master/demo.png)
+
 ### Supported Formats
 - Formats: `dd-mm-yyyy` `dd-mm` `dd` `mm` `yyyy` `mm-yyyy` `dd-yyyy`
