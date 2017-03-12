@@ -1,6 +1,8 @@
 # Datetime-plugin
 Current Build of this plugin supports only Date Format not Datetime, This feature will be included on our next build.
 
+-Vi-datetime plugin v1.1 | (c) Vi Date Time Plugin, Release Date: Sunday, 12th March 2017
+
 ## Getting started
 
 ### Installation
@@ -20,4 +22,4 @@ Include files:
 ![Alt text](https://raw.githubusercontent.com/vinodselvin/datetime-plugin/master/demo.png)
 
 ### Supported Formats
-- Formats: `dd-mm-yyyy` `dd-mm` `dd` `mm` `yyyy` `mm-yyyy` `dd-yyyy`
+- Formats: `dd-mm-yyyy` `yyyy-mm-dd` `mm-dd-yyyy` `dd-yyyy-mm` `yyyy-dd-mm` `mm-yyyy-dd` `mm-yyyy` `yyyy-mm` `dd-yyyy` `yyyy-dd` `mm-dd` `dd-mm` `yyyy` `dd` `mm`
