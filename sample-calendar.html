@@ -1,0 +1,193 @@
+<html>
+    <head>
+        <style>
+            /* Light Theme Start */
+            
+            .vi-calendar{
+                background: linear-gradient(141deg, #f3f3f3 0%, #ffffff 51%, #f3f3f3 75%);
+                box-shadow: 0px 0px 5px #888888;
+                padding: 5px;
+            }
+            .vi-calendar .vi-month-name{
+                text-align: center;
+            }
+            
+            .vi-calendar th, .vi-calendar td{
+                padding: 5px;
+                font-size: 12px;
+                text-align: center;
+            }
+            
+            .vi-calendar td:hover, .vi-calendar .vi-prev-month:hover, .vi-calendar .vi-next-month:hover, .vi-calendar .vi-month-name:hover{
+                background-color: whitesmoke;
+                cursor: pointer;
+                box-shadow: 0px 0px 1px gray;
+                padding: 1px;
+            }
+            .vi-calendar .vi-sun{background-color: #FF6347; color: whitesmoke;}
+            
+            .vi-calendar .vi-date-selected, .vi-calendar .vi-date-selected:hover{border:2px double white !important;background: #D4AF37 !important; padding: 2px !important; color: white !important}
+            
+            /*Light Theme End */
+            
+            /* Dark Theme Start */
+            
+            .vi-dark{
+                /*background: linear-gradient(141deg, #f3f3f3 0%, #ffffff 51%, #f3f3f3 75%);*/
+                background: #333333;
+                box-shadow: 0px 0px 5px #888888;
+                padding: 5px;
+            }
+            .vi-dark .vi-month-name{
+                text-align: center;
+            }
+            
+            .vi-dark th, .vi-dark td{
+                padding: 5px;
+                font-size: 12px;
+                text-align: center;
+                color: #cccccc;
+            }
+            
+            .vi-dark td:hover, .vi-dark .vi-prev-month:hover, .vi-dark .vi-next-month:hover, .vi-dark .vi-month-name:hover{
+                background-color: #333333;
+                cursor: pointer;
+                box-shadow: 0px 0px 1px gray;
+                padding: 1px;
+            }
+            .vi-dark .vi-sun{background-color: #FF6347; color: whitesmoke;}
+            
+            .vi-dark .vi-date-selected, .vi-dark .vi-date-selected:hover{border:2px double gray !important;background: #D4AF37 !important; padding: 2px !important; color: white !important}
+            
+            /*Dark Theme End */
+        </style>
+    </head>
+    <body>
+        <h2>Next Version of my Date Picker will look like this</h2>
+        <table class="vi-calendar">
+            <tr>
+                <th class="vi-month-name" colspan="5">March</th>
+                <th class="vi-prev-month">+</th>
+                <th class="vi-next-month">-</th>
+            </tr>
+            <tr>
+                <th class="vi-sun">S</th>
+                <th class="vi-mon">M</th>
+                <th class="vi-tue">T</th>
+                <th class="vi-wed">W</th>
+                <th class="vi-thu">T</th>
+                <th class="vi-fri">F</th>
+                <th class="vi-sat">S</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>
+                <td>14</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>16</td>
+                <td>17</td>
+                <td>18</td>
+                <td>19</td>
+                <td>20</td>
+                <td>21</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>23</td>
+                <td>24</td>
+                <td class='vi-date-selected'>25</td>
+                <td>26</td>
+                <td>27</td>
+                <td>28</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>30</td>
+                <td>31</td>
+            </tr>
+        </table>
+        <br><br>
+        <table class="vi-calendar vi-dark">
+            <tr>
+                <th class="vi-prev-year">&lt;&lt;</th>
+                <th class="vi-year-name" colspan="2">Year</th>
+                <th class="vi-next-year">&gt;&gt;</th>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>2015</td>
+                <td>2016</td>
+                <td>2017</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>2015</td>
+                <td>2016</td>
+                <td>2017</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>2015</td>
+                <td>2016</td>
+                <td>2017</td>
+            </tr>
+        </table>
+        <br><br>
+        <table class="vi-calendar vi-dark">
+            <tr>
+                <th class="vi-year-name" colspan="5">Time</th>
+            </tr>
+            <tr>
+                <th>HH</th>
+                <th>MM</th>
+                <th>SS</th>
+                <th>AP</th>
+            </tr>
+            <tr>
+                <td>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </td>
+                <td>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </td>
+                <td>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </td>
+                <td>
+                    <select>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
