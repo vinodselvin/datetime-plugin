@@ -21,5 +21,7 @@ Include files:
 ### Output
 ![Alt text](https://raw.githubusercontent.com/vinodselvin/datetime-plugin/master/demo.png)
 
+Click <a href="http://codepen.io/vinodselvin/pen/gmzpKj" target="_blank">here</a> for demo.
+
 ### Supported Formats
 - Formats: `dd-mm-yyyy` `yyyy-mm-dd` `mm-dd-yyyy` `dd-yyyy-mm` `yyyy-dd-mm` `mm-yyyy-dd` `mm-yyyy` `yyyy-mm` `dd-yyyy` `yyyy-dd` `mm-dd` `dd-mm` `yyyy` `dd` `mm`
