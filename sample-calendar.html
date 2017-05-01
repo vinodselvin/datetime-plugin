@@ -13,8 +13,8 @@
             }
             
             .vi-calendar th, .vi-calendar td{
-                padding: 5px;
-                font-size: 12px;
+                padding: 8px;
+                font-size: 15px;
                 text-align: center;
             }
             
@@ -43,8 +43,8 @@
             }
             
             .vi-dark th, .vi-dark td{
-                padding: 5px;
-                font-size: 12px;
+                padding: 8px;
+                font-size: 15px;
                 text-align: center;
                 color: #cccccc;
             }
@@ -61,94 +61,150 @@
             
             /*Dark Theme End */
         </style>
+        <script src="jquery.min.js"></script>
+        <script src="vi-datetimepicker.js"></script>
+        <script>
+            
+            var calendar;
+            var years;
+            var times;
+            var months;
+            
+            $(document).on('click', '.vi-month-name', function(){
+               calendar = $(this).parent().parent().parent().html();
+               $(this).parent().parent().parent().html($('.vi-months').html());
+            });
+            
+            $(document).on('click', '.vi-year', function(){
+                years = $(this).parent().parent().html();
+                $(this).parent().parent().html(calendar);
+            });
+            
+            $(document).on('click', '.vi-month', function(){
+                months = $(this).parent().parent().html();
+                $(this).parent().parent().html($('.vi-years').html());
+            });
+            
+            $(document).on('click', '.vi-select-year', function(){
+                months = $(this).parent().parent().html();
+                $(this).parent().parent().html($('.vi-years').html());
+            });
+            
+        </script>
     </head>
     <body>
         <h2>Next Version of my Date Picker will look like this</h2>
         <table class="vi-calendar">
-            <tr>
-                <th class="vi-month-name" colspan="5">March</th>
-                <th class="vi-prev-month">+</th>
-                <th class="vi-next-month">-</th>
-            </tr>
-            <tr>
-                <th class="vi-sun">S</th>
-                <th class="vi-mon">M</th>
-                <th class="vi-tue">T</th>
-                <th class="vi-wed">W</th>
-                <th class="vi-thu">T</th>
-                <th class="vi-fri">F</th>
-                <th class="vi-sat">S</th>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>7</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-                <td>14</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
-                <td>18</td>
-                <td>19</td>
-                <td>20</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>22</td>
-                <td>23</td>
-                <td>24</td>
-                <td class='vi-date-selected'>25</td>
-                <td>26</td>
-                <td>27</td>
-                <td>28</td>
-            </tr>
-            <tr>
-                <td>29</td>
-                <td>30</td>
-                <td>31</td>
-            </tr>
+            <tbody class="vi-date-body">
+                <tr>
+                    <th class="vi-month-name" colspan="5">March</th>
+                    <th class="vi-prev-month">+</th>
+                    <th class="vi-next-month">-</th>
+                </tr>
+                <tr>
+                    <th class="vi-sun">S</th>
+                    <th class="vi-mon">M</th>
+                    <th class="vi-tue">T</th>
+                    <th class="vi-wed">W</th>
+                    <th class="vi-thu">T</th>
+                    <th class="vi-fri">F</th>
+                    <th class="vi-sat">S</th>
+                </tr>
+                <tr>
+                    <td class='vi-d-1'>1</td>
+                    <td class='vi-d-2'>2</td>
+                    <td class='vi-d-3'>3</td>
+                    <td class='vi-d-4'>4</td>
+                    <td class='vi-d-5'>5</td>
+                    <td class='vi-d-6'>6</td>
+                    <td class='vi-d-7'>7</td>
+                </tr>
+                <tr>
+                    <td class='vi-d-8'>8</td>
+                    <td class='vi-d-9'>9</td>
+                    <td class='vi-d-10'>10</td>
+                    <td class='vi-d-11'>4</td>
+                    <td class='vi-d-12'>5</td>
+                    <td class='vi-d-13'>6</td>
+                    <td class='vi-d-14'>7</td>
+                </tr>
+                <tr>
+                    <td class='vi-d-15'>1</td>
+                    <td class='vi-d-16'>2</td>
+                    <td class='vi-d-17'>3</td>
+                    <td class='vi-d-18'>4</td>
+                    <td class='vi-d-19'>5</td>
+                    <td class='vi-d-20'>6</td>
+                    <td class='vi-d-21'>7</td>
+                </tr>
+                <tr>
+                    <td class='vi-d-22'>1</td>
+                    <td class='vi-d-23'>2</td>
+                    <td class='vi-d-24'>3</td>
+                    <td class='vi-d-25 vi-date-selected'>4</td>
+                    <td class='vi-d-26'>5</td>
+                    <td class='vi-d-27'>6</td>
+                    <td class='vi-d-28'>7</td>
+                </tr>
+                <tr>
+                    <td class='vi-d-29'>1</td>
+                    <td class='vi-d-30'>2</td>
+                    <td class='vi-d-31'>3</td>
+                </tr>
+            </tbody>
         </table>
         <br><br>
-        <table class="vi-calendar vi-dark">
+        <table class="vi-calendar vi-dark vi-years">
             <tr>
                 <th class="vi-prev-year">&lt;&lt;</th>
                 <th class="vi-year-name" colspan="2">Year</th>
                 <th class="vi-next-year">&gt;&gt;</th>
             </tr>
             <tr>
-                <td>2014</td>
-                <td>2015</td>
-                <td>2016</td>
-                <td>2017</td>
+                <td class="vi-year">2014</td>
+                <td class="vi-year">2015</td>
+                <td class="vi-year">2016</td>
+                <td class="vi-year">2017</td>
             </tr>
             <tr>
-                <td>2014</td>
-                <td>2015</td>
-                <td>2016</td>
-                <td>2017</td>
+                <td class="vi-year">2014</td>
+                <td class="vi-year">2015</td>
+                <td class="vi-year">2016</td>
+                <td class="vi-year">2017</td>
             </tr>
             <tr>
-                <td>2014</td>
-                <td>2015</td>
-                <td>2016</td>
-                <td>2017</td>
+                <td class="vi-year">2014</td>
+                <td class="vi-year">2015</td>
+                <td class="vi-year">2016</td>
+                <td class="vi-year">2017</td>
+            </tr>
+        </table>
+        
+        <table class="vi-calendar vi-dark vi-months">
+            <tr>
+                <th class="vi-select-year" colspan="4">2017</th>
+            </tr>
+            <tr>
+                <td class="vi-month">Jan</td>
+                <td class="vi-month">Feb</td>
+                <td class="vi-month">Mar</td>
+                <td class="vi-month">Apr</td>
+            </tr>
+            <tr>
+                <td class="vi-month">May</td>
+                <td class="vi-month">Jun</td>
+                <td class="vi-month">Jul</td>
+                <td class="vi-month">Aug</td>
+            </tr>
+            <tr>
+                <td class="vi-month">Sep</td>
+                <td class="vi-month">Oct</td>
+                <td class="vi-month">Nov</td>
+                <td class="vi-month">Dec</td>
             </tr>
         </table>
         <br><br>
-        <table class="vi-calendar vi-dark">
+        <table class="vi-calendar vi-dark vi-times">
             <tr>
                 <th class="vi-year-name" colspan="5">Time</th>
             </tr>
