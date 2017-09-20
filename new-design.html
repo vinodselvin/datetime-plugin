@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>My Datetime Plugin</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="new-datetime.js"></script>
+        <style>
+            ._cal_header{background-color: #0B4275; color: white;padding-bottom: 15px}
+            ._months{font-size: 28px; color: white;font-weight: 500;cursor: pointer;}
+            ._months:hover{opacity: 0.6;}
+            ._years{padding-top: 10px; opacity: 0.6; cursor: pointer}
+            ._years:hover{opacity: 1; cursor: pointer}
+            ._cal_body{ padding: 15px 10px 15px 10px;}
+            ._vi_calendar{border: 1px solid #0B4275; width: 260px;}
+            ._cal_lt, ._cal_gt, ._month_label,._lt_gt_header{text-align: center;}
+            ._cal_lt, ._cal_gt{width: 30px;height: 30px; padding: 7px}
+            ._month_label{padding: 7px}
+            ._dates_header .col-xs-1-5{ width: calc(12.5%);display: inline-block;text-align: center;font-size: 12px;}
+            ._dates_header{text-align: center; padding-top: 10px;}
+            ._day_header .col-xs-1-5{font-weight: bold;}
+            .col-xs-1-5{padding: 10px}
+            ._actual_days .col-xs-1-5:hover,._cal_lt:hover, ._cal_gt:hover{background-color: grey;color: white;cursor: pointer; border-radius: 50%}
+            ._actual_days .col-xs-1-5:active,._cal_lt:active, ._cal_gt:active, .col-xs-1-5:focus{background-color: #0B4275;color: white;cursor: pointer; border-radius: 50%}
+            ._clear_calendar,._cancel_calendar,._set_calendar{color: #0B4275; font-size: 11px; margin-top: 10px; margin-bottom: 10px;padding: 2px; text-align: center;font-weight: bold;}
+            ._clear_calendar:hover,._cancel_calendar:hover,._set_calendar:hover{border-radius: 5px;background-color: gray;cursor: pointer; color: white}
+            ._clear_calendar:active,._cancel_calendar:active,._set_calendar:active{border-radius: 5px;background-color: #0B4275;color: white;width: 100%}
+            ._set_calendar_wrapper, ._cancel_calendar_wrapper{float: right;}
+            ._actual_years ul,._actual_time ul{text-align: center;list-style: none;vertical-align:middle ;padding: 5px 0px 5px 0px;height: 130px;overflow-y: scroll}
+            ._actual_years li,._actual_time li{ padding: 10px 0px 10px 0px; font-size: 16px}
+            ._actual_years li:hover,._actual_time li:hover{ color: #0B4275; font-weight: bold}
+            ._actual_years p,._actual_time p{ text-align: center; color: #0B4275; font-weight: bold}
+            ._actual_days > .selected{background-color: grey;color: white;cursor: pointer; border-radius: 50%}
+	
+        </style>
+
+    </head>
+    <body>
+		
+		<input class="vi-datetime" type="text" value="2017/09/17">
+		<div id="output"></div>
+        <div class="container _vi_calendar">
+            <div class="row _cal_header">
+                <div class="col-xs-12 _years">
+                    2017
+                </div>
+                <div class="col-xs-12 _months">
+                    Wed, 3 May
+                </div>
+            </div>
+            <div class="row _cal_body">
+                <div class="row">
+                    <div class="col-xs-3 _lt_gt_header">
+                        <div class="glyphicon glyphicon-menu-left _cal_lt"></div>
+                    </div>
+                    <div class="col-xs-6 _month_label">
+                        May 2017
+                    </div>
+                    <div class="col-xs-3 _lt_gt_header">
+                        <div class="glyphicon glyphicon-menu-right _cal_gt"></div>
+                    </div>
+                </div>
+                <div class="row _dates_header">
+                    <div class="_day_header">
+                        <div class="col-xs-1-5">
+                            M
+                        </div>
+                        <div class="col-xs-1-5">
+                            T
+                        </div>
+                        <div class="col-xs-1-5">
+                            W
+                        </div>
+                        <div class="col-xs-1-5">
+                            T
+                        </div>
+                        <div class="col-xs-1-5">
+                            F
+                        </div>
+                        <div class="col-xs-1-5">
+                            S
+                        </div>
+                        <div class="col-xs-1-5">
+                            S
+                        </div>
+                    </div>
+                    <div class="_days_view">
+                        <div class="_actual_days">
+                            <div class="col-xs-1-5">
+                                1
+                            </div>
+                            <div class="col-xs-1-5">
+                                2
+                            </div>
+                            <div class="col-xs-1-5">
+                                3
+                            </div>
+                            <div class="col-xs-1-5">
+                                4
+                            </div>
+                            <div class="col-xs-1-5">
+                                5
+                            </div>
+                            <div class="col-xs-1-5">
+                                6
+                            </div>
+                            <div class="col-xs-1-5">
+                                7
+                            </div>
+                        </div>
+                        <div class="_actual_days">
+                            <div class="col-xs-1-5">
+                                1
+                            </div>
+                            <div class="col-xs-1-5">
+                                2
+                            </div>
+                            <div class="col-xs-1-5">
+                                3
+                            </div>
+                            <div class="col-xs-1-5">
+                                4
+                            </div>
+                            <div class="col-xs-1-5">
+                                5
+                            </div>
+                            <div class="col-xs-1-5">
+                                6
+                            </div>
+                            <div class="col-xs-1-5">
+                                7
+                            </div>
+                        </div>
+                        <div class="_actual_days">
+                            <div class="col-xs-1-5">
+                                1
+                            </div>
+                            <div class="col-xs-1-5">
+                                2
+                            </div>
+                            <div class="col-xs-1-5">
+                                3
+                            </div>
+                            <div class="col-xs-1-5">
+                                4
+                            </div>
+                            <div class="col-xs-1-5">
+                                5
+                            </div>
+                            <div class="col-xs-1-5">
+                                6
+                            </div>
+                            <div class="col-xs-1-5">
+                                7
+                            </div>
+                        </div>
+                        <div class="_actual_days">
+                            <div class="col-xs-1-5">
+                                1
+                            </div>
+                            <div class="col-xs-1-5">
+                                2
+                            </div>
+                            <div class="col-xs-1-5">
+                                3
+                            </div>
+                            <div class="col-xs-1-5">
+                                4
+                            </div>
+                            <div class="col-xs-1-5">
+                                5
+                            </div>
+                            <div class="col-xs-1-5">
+                                6
+                            </div>
+                            <div class="col-xs-1-5">
+                                7
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row _cal_footer">
+                <div class="col-xs-4 _clear_calendar_wrapper">
+                    <div class="_clear_calendar">
+                        CLEAR
+                    </div>
+                </div>
+
+                <div class="col-xs-3 _set_calendar_wrapper">
+                    <div class="_set_calendar">
+                        SET
+                    </div>
+                </div>
+                <div class="col-xs-4 _cancel_calendar_wrapper">
+                    <div class="_cancel_calendar">
+                        CANCEL
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="container _vi_calendar">
+            <div class="row _cal_header">
+                <div class="col-xs-12 _years">
+                    2017
+                </div>
+                <div class="col-xs-12 _months">
+                    Wed, 3 May
+                </div>
+            </div>
+            <div class="row _cal_body">
+                <div class="_actual_years">
+                    <p>Pick a Year</p>
+                    <ul>
+                        <li>1994</li>
+                        <li>1995</li>
+                        <li>1996</li>
+                        <li>1997</li>
+                        <li>1998</li>
+                        <li>1999</li>
+                        <li>2000</li>
+                        <li>2001</li>
+                        <li>2002</li>
+                        <li>2003</li>
+                        <li>2004</li>
+                        <li>2005</li>
+                        <li>2006</li>
+                        <li>2007</li>
+                        <li>2008</li>
+                        <li>2009</li>
+                        <li>2010</li>
+                        <li>2011</li>
+                        <li>2012</li>
+                        <li>2013</li>
+                        <li>2014</li>
+                        <li>2015</li>
+                        <li>2016</li>
+                        <li>2017</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row _cal_footer">
+                <div class="col-xs-4 _clear_calendar_wrapper">
+                    <div class="_clear_calendar">
+                        CLEAR
+                    </div>
+                </div>
+
+                <div class="col-xs-3 _set_calendar_wrapper">
+                    <div class="_set_calendar">
+                        SET
+                    </div>
+                </div>
+                <div class="col-xs-4 _cancel_calendar_wrapper">
+                    <div class="_cancel_calendar">
+                        CANCEL
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="container _vi_calendar">
+            <div class="row _cal_header">
+                <div class="col-xs-12 _years">
+                    2017
+                </div>
+                <div class="col-xs-12 _months">
+                    Wed, 3 May
+                </div>
+            </div>
+            <div class="row _cal_body">
+                <div class="_actual_time">
+                    <div class="col-xs-4">
+                        <p>DD</p>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <p>MM</p>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-4">
+                        <p>YY</p>
+                        <ul>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                            <li>1</li>
+                            <li>2</li>
+                            <li>3</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row _cal_footer">
+                <div class="col-xs-4 _clear_calendar_wrapper">
+                    <div class="_clear_calendar">
+                        CLEAR
+                    </div>
+                </div>
+
+                <div class="col-xs-3 _set_calendar_wrapper">
+                    <div class="_set_calendar">
+                        SET
+                    </div>
+                </div>
+                <div class="col-xs-4 _cancel_calendar_wrapper">
+                    <div class="_cancel_calendar">
+                        CANCEL
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <input type="text" value="" class="vi-datetime" id="noobs">
+        <input type="text" value="" class="vi-datetime" id="noobs1">
+        <script src="jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!--<script src="vi-datetimepicker.js"></script>-->
+    </body>
+</html>
