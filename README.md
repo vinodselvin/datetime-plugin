@@ -3,6 +3,8 @@ Current Build of this plugin supports only Date Format not Datetime, This featur
 
 -Vi-datetime plugin v1.1 | (c) Vi Date Time Plugin, Release Date: Sunday, 12th March 2017
 
+<a href="https://www.buymeacoffee.com/vinodselvin" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/yellow_img.png" alt="Buy Me A Coffee"></a>
+
 ## Getting started
 
 ### Installation
